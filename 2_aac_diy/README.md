@@ -27,7 +27,20 @@ Navigate to the 2_aac_diy directory:
 
 This folder contains a demo ACI as Code inventory (in the data dir), a main.tf file to run with Terraform and sevaral other important AaC related files (schema, rules, tests).
 
-Open up the folder in your favorite IDE (e.g. Visual Studio, PyCharm...). Take some time and examine the code structure. All changes described in the next section will be made on the local copy of this repository.
+Open up the folder in your favorite IDE (e.g. Visual Studio, PyCharm...). Take some time and examine the code structure. All changes described in the next sections will be made on the local copy of this repository.
+
+## Change the tenant name
+
+Since there are multiple people working on the same sandbox APIC it's necessary to separate the config scope.
+In the yaml file `2_aac_diy/data/tenant_Techtorial.nac.yaml` change the tenant name to something unique, like your name.
+
+```yaml
+---
+apic:
+  tenants:
+    - name: Techtorial-lab-BALNOVAK
+...
+```
 
 ## Customize Terraform backend
 
@@ -292,6 +305,6 @@ Select a resource from the state file and remove it in the APIC GUI, then run `t
 
 ## Lab Summary
 
-If you have followed the steps outline in this lab guide have you successfully used Terraform AAC to modify the configuratons of your ACI simulator.
+If you have followed the steps outline in this lab guide have you successfully used Terraform AAC to modify the configuratons of the sandbox ACI simulator.
 
 In the next lab will we integrate these steps into a CI/CD pipeline in order to eliminate manual tasks.
